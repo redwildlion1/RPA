@@ -1,13 +1,6 @@
 channels:
   - conda-forge
 dependencies:
-  - python=3.12
-  - pip=22.3.1
-  - pip:
-      channels:
-  - conda-forge
-  - defaults
-dependencies:
   - python=3.12  # Specify your desired Python version
   - pip=22.3.1  # Specify the desired pip version
   - pip:
