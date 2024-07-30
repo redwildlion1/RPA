@@ -4,7 +4,6 @@ channels:
 dependencies:
   - python=3.12
   - pip=22.3.0
-  - ensurepip
   - setuptools
   - pip:
       - rpaframework==28.6.1
