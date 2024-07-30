@@ -4,10 +4,55 @@ dependencies:
   - python=3.12
   - pip=22.3.1
   - pip:
-      - rpaframework
-      - selenium
-      - setuptools
-      - wheel
-      - pandas
-      - poetry
+      channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.12  # Specify your desired Python version
+  - pip=22.3.1  # Specify the desired pip version
+  - pip:
+    - rpaframework==28.6.1
+    - rpaframework-core==11.3.2
+    - rpaframework-pdf==7.3.2
+    - rpaframework-windows==7.5.1
+    - robotframework==6.1.1
+    - robotframework-pythonlibcore==4.4.1
+    - robotframework-requests==0.9.7
+    - robotframework-sapguilibrary==1.1
+    - robotframework-seleniumlibrary==6.5.0
+    - robotframework-seleniumtestability==2.1.0
+    - selenium==4.15.2
+    - requests==2.31.0
+    - pandas==2.0.2
+    - numpy==1.24.4
+    - attrs==23.2.0
+    - beautifulsoup4==4.12.2
+    - certifi==2023.7.22
+    - chardet==3.0.4
+    - charset-normalizer==2.0.4
+    - click==8.1.7
+    - cryptography==42.0.5
+    - dateutil==2.8.2
+    - docutils==0.21.2
+    - html5lib==1.1
+    - idna==3.4
+    - importlib-metadata==8.2.0
+    - iso8601==1.1.0
+    - jinja2==3.1.2
+    - jsonschema==4.17.3
+    - lxml==5.2.2
+    - markdown==3.4.1
+    - openpyxl==3.1.5
+    - Pillow==10.4.0
+    - pyOpenSSL==24.2.1
+    - pypdf==3.17.4
+    - pywin32==305.1
+    - ruamel.yaml==0.17.21
+    - selenium==4.15.2
+    - smartsheet-python-sdk==3.0.3
+    - toml==0.10.2
+    - tornado==6.3.2
+    - urllib3==1.26.16
+    - wheel==0.38.4
+    - zipp==3.19.2
 
