@@ -7,5 +7,6 @@ tasks:
         - --outputdir .
         - --log log.html
         - tasks.robot
+artifactsDir: ./output
 conda:
   file: conda.yaml
