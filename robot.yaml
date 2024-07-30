@@ -1,4 +1,7 @@
 tasks:
+  Setup:
+    robotTaskName: Setup
+    shell: python -m ensurepip --upgrade
   Extract News Data:
     robotTaskName: Extract News Data
     # You can also specify `shell` or `command` if needed
