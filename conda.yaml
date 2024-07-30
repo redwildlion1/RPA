@@ -2,8 +2,12 @@ channels:
   - conda-forge
 dependencies:
   - python=3.12
-  - pip 
+  - pip=22.3.1
   - pip:
       - rpaframework
       - selenium
+      - setuptools
+      - wheel
+      - pandas
+      - poetry
 
