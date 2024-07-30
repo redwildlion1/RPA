@@ -1,10 +1,9 @@
 name: base
-channels:
-  - conda-forge
-  - defaults
 dependencies:
   - python=3.12
   - pip=22.3.0
   - pip:
       - rpaframework==28.6.1
       - selenium==4.23.1
+  - ensurepip
+  - setuptools
