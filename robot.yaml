@@ -1,7 +1,7 @@
 tasks:
   Setup:
     robotTaskName: Setup
-    shell: python -m ensurepip --upgrade
+    shell: python -m ensurepip --upgrade'
     dependsOn: conda.yaml
     artifactsDir: ./output
 
