@@ -1,0 +1,11 @@
+tasks:
+  Extract News Data:
+    robot_run:
+      command: robot
+      args:
+        - --report NONE
+        - --outputdir .
+        - --log log.html
+        - tasks.robot
+conda:
+  file: conda.yaml
