@@ -1,5 +1,6 @@
 tasks:
   Extract News Data:
+    robotTaskName: Extract News Data
     robot_run:
       command: robot
       args:
@@ -7,6 +8,6 @@ tasks:
         - --outputdir .
         - --log log.html
         - tasks.robot
-artifactsDir: ./output
+   artifactsDir: ./output
 conda:
   file: conda.yaml
