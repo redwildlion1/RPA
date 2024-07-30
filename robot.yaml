@@ -4,10 +4,13 @@ tasks:
     shell: python -m ensurepip --upgrade
     dependsOn: condaConfigFile
     artifactsDir: ./output
+
   Extract News Data:
     robotTaskName: Extract News Data
     dependsOn: Setup
+    artifactsDir: ./output
     # You can also specify `shell` or `command` if needed
     # shell: python your_script.py
     # command: some_command
+
   condaConfigFile: conda.yaml
