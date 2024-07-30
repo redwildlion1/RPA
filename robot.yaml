@@ -2,7 +2,7 @@ tasks:
   Setup:
     robotTaskName: Setup
     shell: python -m ensurepip --upgrade
-    dependsOn: condaConfigFile
+    dependsOn: conda.yaml
     artifactsDir: ./output
 
   Extract News Data:
