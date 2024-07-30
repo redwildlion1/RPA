@@ -1,6 +1,7 @@
 name: base
 channels:
   - defaults
+  - conda-forge
 dependencies:
   - anaconda-client=1.11.2
   - anaconda-navigator=2.4.0
@@ -220,3 +221,4 @@ dependencies:
       - xlwt==1.3.0
       - zeep==4.2.1
       - zipp==3.19.2
+prefix: C:\Users\Trandafir\anaconda3
