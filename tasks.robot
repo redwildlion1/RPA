@@ -16,8 +16,5 @@ Extract News Data
     ${num_months}=       Get work item variable    num_months       default=3
 
     # Run the Python script with the fetched variables
-    Run Python Script
-        Run Process    python    ${REPO}/news_scraper.py    ${search_phrase}    ${news_category}    ${num_months}
+    Run Process    python    ${REPO}/news_scraper.py    ${search_phrase}    ${news_category}    ${num_months}
 
-    # Read the output file
-    ${output}=    Read File    /output/news_data.xlsx
