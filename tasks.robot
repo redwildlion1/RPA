@@ -6,7 +6,7 @@ Library           RPA.FileSystem
 Library           Process
 
 *** Variables ***
-${REPO}           https://github.com/redwildlion1/RPA
+
 
 *** Tasks ***
 Extract News Data
@@ -16,5 +16,5 @@ Extract News Data
     ${num_months}=       Get work item variable    num_months       default=3
 
     # Run the Python script with the fetched variables
-    Run Process    news_scraper.py    ${search_phrase}    ${news_category}    ${num_months}
+    Run Process    ${CURDIR}/news_scraper.py    ${search_phrase}    ${news_category}    ${num_months}
 
