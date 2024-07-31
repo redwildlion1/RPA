@@ -4,9 +4,11 @@ Library           RPA.Robocloud.Items
 Library           RPA.Robocorp.Vault
 Library           RPA.FileSystem
 Library           Process
+Library           OperatingSystem
 
 *** Variables ***
 ${REPO}           https://github.com/redwildlion1/RPA
+${OUTPUT_FOLDER}   ${CURDIR}/output
 
 *** Tasks ***
 Extract News Data
@@ -18,3 +20,11 @@ Extract News Data
     # Run the Python script with the fetched variables
     Run Process    python    ${REPO}/news_scraper.py    ${search_phrase}    ${news_category}    ${num_months}
 
+    # Create the output folder if it doesn't exist
+    Create Directory    ${OUTPUT_FOLDER}
+
+    # Set the output folder as a suite variable
+    Set Suite Variable    ${OUTPUT_FOLDER}
+
+    # Add the output folder to artifacts
+    Set Suite Metadata    Artifacts    ${OUTPUT_FOLDER}
