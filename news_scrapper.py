@@ -93,10 +93,9 @@ class NewsScraper:
 if __name__ == "__main__":
     parameters = workitems.inputs
     for item in parameters:
-        print(item.payload)
-    search_phrase = parameters[0].payload.value
-    news_category = parameters[1].payload.value
-    num_months = parameters[2].payload.value
+        search_phrase = item.payload['search_phrase']
+        news_category = item.payload['news_category']
+        num_months = item.payload['num_months']
     # Replace with actual parameters
     scraper = NewsScraper(search_phrase=search_phrase, news_category=news_category, num_months=num_months)
     try:
