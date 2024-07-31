@@ -108,5 +108,9 @@ if __name__ == "__main__":
             scraper.extract_data_from_articles()
             scraper.navigate_to_next_page(scraper.continue_scraping)
         scraper.save_to_excel(scraper.data_to_save)
+    except:
+        scraper.logger.error("An error occurred")
+        scraper.logger.error(sys.exc_info())
+        print(sys.exc_info())
     finally:
         scraper.close()
