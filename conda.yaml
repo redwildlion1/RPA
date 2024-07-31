@@ -9,5 +9,6 @@ dependencies:
   - pip:
       - rpaframework==28.6.1
       - selenium==4.15.2
+      - RPA
 ignorefiles:
   - .gitignore
