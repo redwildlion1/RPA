@@ -11,11 +11,11 @@ from robocorp import workitems
 
 
 class NewsScraper:
-    def __init__(self, search_phrase, news_category, num_months, log_file):
+    def __init__(self, search_phrase, news_category, num_months):
         self.continue_scraping = True
         
         # Create a logger
-        self.logger = SimpleLogger(log_file + '/log.txt')
+        self.logger = SimpleLogger('output/log.txt')
 
         self.logger.info("Starting the application")
         self.logger.info(search_phrase, news_category, num_months)
@@ -39,7 +39,7 @@ class NewsScraper:
         self.http = HTTP()
 
 
-        self.output_dir = log_file
+        self.output_dir = 'output'
         self.excel_file = os.path.join(self.output_dir, 'news_data.xlsx')
         self.init_excel_file()
 

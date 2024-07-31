@@ -28,11 +28,11 @@ logger.critical('Critical message')
 # Close the file handler
 file_handler.close()
 class SimpleLogger:
-    def __init__(self, log_file):
+    def __init__(self):
         self.logger = logging.getLogger(__name__)
         self.logger.setLevel(logging.DEBUG)
         
-        file_handler = logging.FileHandler(log_file)
+        file_handler = logging.FileHandler('output/log.txt')
         formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
         file_handler.setFormatter(formatter)
         self.logger.addHandler(file_handler)
