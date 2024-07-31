@@ -21,6 +21,7 @@ class NewsScraper:
         self.logger.info({search_phrase, news_category, num_months})
 
         svc = webdriver.ChromeService(executable_path=binary_path)
+        svc.start()
 
         chrome_options = Options()
         chrome_options.add_argument("--disable-blink-features=AutomationControlled")
