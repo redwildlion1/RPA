@@ -40,6 +40,8 @@ class NewsScraper:
 
 
         self.output_dir = log_file
+        self.excel_file = os.path.join(self.output_dir, 'news_data.xlsx')
+        self.init_excel_file()
 
 
     def init_excel_file(self):
