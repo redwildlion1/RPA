@@ -4,6 +4,7 @@ channels:
 dependencies:
   - python==3.12
   - pip==23.2.1
+  - pendulum==2.1.2
   - setuptools==71.0.4
   - pip:
       - rpaframework==28.6.1
