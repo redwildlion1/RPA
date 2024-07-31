@@ -8,7 +8,7 @@ Library           OperatingSystem
 
 *** Variables ***
 ${REPO}           https://github.com/redwildlion1/RPA
-${OUTPUT_FOLDER}  /output
+${OUTPUT_FOLDER}  ${CURDIR}/output
 
 *** Tasks ***
 Extract News Data
@@ -18,7 +18,7 @@ Extract News Data
     ${num_months}=       Get work item variable    num_months       default=3
 
     # Run the Python script with the fetched variables
-    Run Process    python    ${REPO}/news_scraper.py    ${search_phrase}    ${news_category}    ${num_months}
+    Run Process    python    ${REPO}/news_scraper.py    ${search_phrase}    ${news_category}    ${num_months}  ${OUTPUT_FOLDER}
 
     # Create the output folder if it doesn't exist
     RPA.FileSystem.Create Directory    ${OUTPUT_FOLDER}

@@ -11,11 +11,11 @@ from robocorp import workitems
 
 
 class NewsScraper:
-    def __init__(self, search_phrase, news_category, num_months):
+    def __init__(self, search_phrase, news_category, num_months, log_file):
         self.continue_scraping = True
         
         # Create a logger
-        self.logger = SimpleLogger('output/log.txt')
+        self.logger = SimpleLogger(log_file + '/log.txt')
 
         self.logger.info("Starting the application")
         self.logger.info(search_phrase, news_category, num_months)
@@ -39,11 +39,7 @@ class NewsScraper:
         self.http = HTTP()
 
 
-        self.output_dir = os.path.join(os.getcwd(), 'output')
-        if not os.path.exists(self.output_dir):
-            os.makedirs(self.output_dir)
-        self.excel_file = os.path.join(self.output_dir, 'news_data.xlsx')
-        self.init_excel_file()
+        self.output_dir = log_file
 
 
     def init_excel_file(self):
@@ -98,8 +94,9 @@ if __name__ == "__main__":
     search_phrase = parameters['search_phrase']
     news_category = parameters['news_category']
     num_months = int(parameters['num_months'])
+    log_file = parameters['log_file']
     # Replace with actual parameters
-    scraper = NewsScraper(search_phrase=search_phrase, news_category=news_category, num_months=num_months)
+    scraper = NewsScraper(search_phrase=search_phrase, news_category=news_category, num_months=num_months, log_file=log_file)
     try:
         scraper.search_news()
         scraper.sort_by_newest()
