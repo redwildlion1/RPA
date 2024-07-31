@@ -4,7 +4,10 @@ tasks:
 
   Extract News Data:
     shell: python news_scrapper.py
-
+PATH:
+  - .
+PYTHONPATH:
+  - .
 condaConfigFile: conda.yaml
 
 artifactsDir: output
