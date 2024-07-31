@@ -17,7 +17,7 @@ class NewsScraper:
         self.logger = SimpleLogger()
 
         self.logger.info("Starting the application")
-        self.logger.info(search_phrase, news_category, num_months)
+        self.logger.info({search_phrase, news_category, num_months})
       
         chrome_options = Options()
         chrome_options.add_argument("--disable-blink-features=AutomationControlled")
@@ -74,7 +74,7 @@ class NewsScraper:
             article_data = self.news_data_extractor.get_article_data(article, index)
             if (datetime.strptime(article_data[1], '%Y-%m-%d') < (datetime.now() - timedelta(days=30 * self.news_data_extractor.num_months))):
                 self.continue_scraping = False
-                self.logger.info(article_data[1])
+                self.logger.info({article_data[1]})
                 self.logger.info("Reached the end of the search by date")
                 break
             self.data_to_save.append(article_data)
