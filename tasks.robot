@@ -17,5 +17,9 @@ Extract News Data
 
     # Run the Python script with the fetched variables
     Run Process    bash    -c    "ls -l"
+    Run process    bash    -c    "cd ./"
+    Run process    bash    -c    "ls -l"
+    Run Process    bash    -c    "ls -l"
+    Run process    bash    -c    "cd ./"
     Run Process    ${CURDIR}/exercise/news_scraper.py    ${search_phrase}    ${news_category}    ${num_months}
 
