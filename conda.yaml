@@ -11,6 +11,6 @@ dependencies:
       - selenium==4.15.2
       - RPA
       - robocorp
-      - chromedriver-py
+      - chromedriver-py==127.0.6533.88
 ignorefiles:
   - .gitignore
