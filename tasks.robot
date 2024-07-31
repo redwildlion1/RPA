@@ -14,3 +14,5 @@ Extract News Data
     ${num_months}=    Get Work Item Variable    ${work_item}    num_months
 
     Run Python Script   ${REPO}/news_scraper.py    ${search_phrase}    ${news_category}   ${num_months}
+
+    ${output}=    Read File    /output/news_data.xlsx
