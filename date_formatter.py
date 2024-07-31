@@ -3,7 +3,6 @@ from datetime import datetime, timedelta
 class DateFormatter:
     @staticmethod
     def process_date(date):
-        date = date.strip()
         if 'Yesterday' in date:
             date = (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d")
         elif 'ago' in date:

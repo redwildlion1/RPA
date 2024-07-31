@@ -1,16 +1,10 @@
 tasks:
   Setup:
-    robotTaskName: Setup
-    shell: python -m ensurepip --upgrade'
-    dependsOn: conda.yaml
-    artifactsDir: ./output
+    shell: python -m pip install --upgrade pip && pip install -r requirements.txt 
 
   Extract News Data:
     robotTaskName: Extract News Data
-    dependsOn: Setup
-    artifactsDir: ./output
-    # You can also specify `shell` or `command` if needed
-    # shell: python your_script.py
-    # command: some_command
 
-  condaConfigFile: conda.yaml
+condaConfigFile: conda.yaml
+
+artifactsDir: output
