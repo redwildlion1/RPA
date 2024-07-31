@@ -8,7 +8,7 @@ Library           OperatingSystem
 
 *** Variables ***
 ${REPO}           https://github.com/redwildlion1/RPA
-${OUTPUT_FOLDER}   ${CURDIR}/output
+${OUTPUT_FOLDER}  ${REPO}/output
 
 *** Tasks ***
 Extract News Data
@@ -21,7 +21,7 @@ Extract News Data
     Run Process    python    ${REPO}/news_scraper.py    ${search_phrase}    ${news_category}    ${num_months}
 
     # Create the output folder if it doesn't exist
-    Create Directory    ${OUTPUT_FOLDER}
+    RPA.FileSystem.Create Directory    ${OUTPUT_FOLDER}
 
     # Set the output folder as a suite variable
     Set Suite Variable    ${OUTPUT_FOLDER}
