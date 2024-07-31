@@ -14,7 +14,7 @@ class NewsScraper:
         self.continue_scraping = True
         
         # Create a logger
-        self.logger = SimpleLogger('output/log.txt')
+        self.logger = SimpleLogger()
 
         self.logger.info("Starting the application")
         self.logger.info(search_phrase, news_category, num_months)
