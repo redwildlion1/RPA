@@ -21,11 +21,15 @@ class NewsScraper:
         self.logger.info({search_phrase, news_category, num_months})
 
         svc = webdriver.ChromeService(executable_path=binary_path)
-        svc.start()
 
         chrome_options = Options()
         chrome_options.add_argument("--disable-blink-features=AutomationControlled")
         chrome_options.add_argument("--disable-extensions")
+        chrome_options.add_argument("--headless")  # Run in headless mode
+        chrome_options.add_argument("--disable-gpu")  # Disable GPU acceleration
+        chrome_options.add_argument("--no-sandbox")  # Bypass OS security model
+        chrome_options.add_argument("--disable-dev-shm-usage")  # Overcome limited resource problems
+        chrome_options.add_argument("--remote-debugging-port=9222")  # Enable remote debugging
 
         self.driver = webdriver.Chrome(service=svc, options=chrome_options)
 
