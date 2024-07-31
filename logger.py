@@ -7,7 +7,7 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 
 # Create a file handler
-file_handler = logging.FileHandler('output/log.txt')
+file_handler = logging.FileHandler('/output/log.txt')
 
 # Create a formatter
 formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')

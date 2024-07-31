@@ -8,7 +8,7 @@ Library           OperatingSystem
 
 *** Variables ***
 ${REPO}           https://github.com/redwildlion1/RPA
-${OUTPUT_FOLDER}  ${REPO}/output
+${OUTPUT_FOLDER}  /output
 
 *** Tasks ***
 Extract News Data
