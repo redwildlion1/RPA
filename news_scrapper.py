@@ -9,7 +9,6 @@ from selenium.webdriver.chrome.options import Options
 from logger import SimpleLogger
 from robocorp import workitems
 
-
 class NewsScraper:
     def __init__(self, search_phrase, news_category, num_months):
         self.continue_scraping = True
@@ -92,13 +91,12 @@ class NewsScraper:
         self.excel.close_workbook()
 
 if __name__ == "__main__":
-    parameters = workitems.inputs.current
-    search_phrase = parameters['search_phrase']
-    news_category = parameters['news_category']
-    num_months = int(parameters['num_months'])
-    log_file = parameters['log_file']
+    parameters = workitems.inputs
+    search_phrase = parameters.search_phrase
+    news_category = parameters.news_category
+    num_months = int(parameters.num_months)
     # Replace with actual parameters
-    scraper = NewsScraper(search_phrase=search_phrase, news_category=news_category, num_months=num_months, log_file=log_file)
+    scraper = NewsScraper(search_phrase=search_phrase, news_category=news_category, num_months=num_months)
     try:
         scraper.search_news()
         scraper.sort_by_newest()
