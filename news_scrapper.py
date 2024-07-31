@@ -1,11 +1,13 @@
 import os
 from datetime import datetime, timedelta
+import sys
 from selenium import webdriver
 from RPA.Excel.Files import Files
 from RPA.HTTP import HTTP
 from news_data_extractor import NewsDataExtractor
 from selenium.webdriver.chrome.options import Options
 from logger import SimpleLogger
+from robocorp import workitems
 
 
 class NewsScraper:
@@ -89,8 +91,12 @@ class NewsScraper:
         self.excel.close_workbook()
 
 if __name__ == "__main__":
+    parameters = workitems.inputs.current
+    search_phrase = parameters['search_phrase']
+    news_category = parameters['news_category']
+    num_months = int(parameters['num_months'])
     # Replace with actual parameters
-    scraper = NewsScraper(search_phrase="example", news_category="STORIES", num_months=3)
+    scraper = NewsScraper(search_phrase=search_phrase, news_category=news_category, num_months=num_months)
     try:
         scraper.search_news()
         scraper.sort_by_newest()
