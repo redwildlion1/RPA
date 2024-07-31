@@ -3,7 +3,7 @@ tasks:
     shell: python -m pip install --upgrade pip && pip install -r requirements.txt 
 
   Extract News Data:
-    robotTaskName: Extract News Data
+    shell: python news_scrapper.py
 
 condaConfigFile: conda.yaml
 
