@@ -16,5 +16,6 @@ Extract News Data
     ${num_months}=       Get work item variable    num_months       default=3
 
     # Run the Python script with the fetched variables
-    Run Process    ${CURDIR}/news_scraper.py    ${search_phrase}    ${news_category}    ${num_months}
+    Run Process    bash    -c    "ls -l"
+    Run Process    ${CURDIR}/exercise/news_scraper.py    ${search_phrase}    ${news_category}    ${num_months}
 
