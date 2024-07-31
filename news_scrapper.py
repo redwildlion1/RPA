@@ -8,6 +8,7 @@ from news_data_extractor import NewsDataExtractor
 from selenium.webdriver.chrome.options import Options
 from logger import SimpleLogger
 from robocorp import workitems
+from chromedriver_py import binary_path
 
 class NewsScraper:
     def __init__(self, search_phrase, news_category, num_months):
@@ -18,12 +19,14 @@ class NewsScraper:
 
         self.logger.info("Starting the application")
         self.logger.info({search_phrase, news_category, num_months})
-      
+
+        svc = webdriver.ChromeService(executable_path=binary_path)
+
         chrome_options = Options()
         chrome_options.add_argument("--disable-blink-features=AutomationControlled")
         chrome_options.add_argument("--disable-extensions")
 
-        self.driver = webdriver.Chrome(options=chrome_options)
+        self.driver = webdriver.Chrome(service=svc, options=chrome_options)
 
         # Enable Chrome DevTools Protocol and block the add that is causing the page to load slowly
         self.driver.execute_cdp_cmd('Network.enable', {})
