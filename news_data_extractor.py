@@ -12,7 +12,7 @@ class NewsDataExtractor:
         self.search_phrase = search_phrase
         self.news_category = news_category
         self.num_months = num_months
-        self.logger = SimpleLogger('output/log.txt')
+        self.logger = SimpleLogger()
         self.article_getter = ArticleSpecificGetter(self.driver, self.logger)
 
     def get_to_article_page(self):
