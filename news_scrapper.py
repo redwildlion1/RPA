@@ -19,14 +19,19 @@ class NewsScraper:
 
         self.logger.info("Starting the application")
         self.logger.info({search_phrase, news_category, num_months})
+
+        svc = webdriver.ChromeService(executable_path=binary_path)
+
         chrome_options = Options()
         chrome_options.add_argument("--disable-blink-features=AutomationControlled")
         chrome_options.add_argument("--disable-extensions")
+        chrome_options.add_argument("--headless")  # Run in headless mode
+        chrome_options.add_argument("--disable-gpu")  # Disable GPU acceleration
         chrome_options.add_argument("--no-sandbox")  # Bypass OS security model
         chrome_options.add_argument("--disable-dev-shm-usage")  # Overcome limited resource problems
         chrome_options.add_argument("--remote-debugging-port=9222")  # Enable remote debugging
 
-        self.driver = webdriver.Chrome(options=chrome_options)
+        self.driver = webdriver.Chrome(service=svc, options=chrome_options)
 
         # Enable Chrome DevTools Protocol and block the add that is causing the page to load slowly
         self.driver.execute_cdp_cmd('Network.enable', {})
