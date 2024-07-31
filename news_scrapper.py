@@ -16,8 +16,10 @@ class NewsScraper:
         
         # Create a logger
         self.logger = SimpleLogger('output/log.txt')
-        
-    
+
+        self.logger.info("Starting the application")
+        self.logger.info(search_phrase, news_category, num_months)
+      
         chrome_options = Options()
         chrome_options.add_argument("--disable-blink-features=AutomationControlled")
         chrome_options.add_argument("--disable-extensions")
@@ -87,6 +89,7 @@ class NewsScraper:
 
 
     def close(self):
+        self.logger.info("Closing the application")
         self.driver.quit()
         self.excel.close_workbook()
 
