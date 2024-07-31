@@ -91,7 +91,7 @@ class NewsScraper:
         self.excel.close_workbook()
 
 if __name__ == "__main__":
-    parameters = workitems.inputs
+    parameters = workitems.inputs()
     search_phrase = parameters['search_phrase']
     news_category = parameters['news_category']
     num_months = int(parameters['num_months'])
