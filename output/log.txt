@@ -1,0 +1,52 @@
+2024-08-01 15:20:27,623 - INFO - Starting the application
+2024-08-01 15:20:27,623 - INFO - {'robots', 5, 'Stories'}
+2024-08-01 15:20:39,396 - WARNING - Page didn't load properly, reloading the page
+2024-08-01 15:20:40,651 - INFO - Checking category: 
+2024-08-01 15:20:40,698 - INFO - Checking category: 
+2024-08-01 15:20:40,745 - INFO - Checking category: 
+2024-08-01 15:20:40,847 - INFO - Getting articles from the wrapper
+2024-08-01 15:20:40,988 - INFO - Date not found
+2024-08-01 15:20:41,005 - INFO - Description not found
+2024-08-01 15:20:41,023 - INFO - Image not found
+2024-08-01 15:20:41,945 - INFO - Navigating to the next page
+2024-08-01 15:20:42,279 - INFO - Getting articles from the wrapper
+2024-08-01 15:20:42,380 - WARNING - Stale element, trying to find the element again
+2024-08-01 15:20:42,475 - INFO - Date not found
+2024-08-01 15:20:42,488 - INFO - Description not found
+2024-08-01 15:20:42,500 - INFO - Image not found
+2024-08-01 15:20:42,875 - INFO - Image not found
+2024-08-01 15:20:43,163 - INFO - Date not found
+2024-08-01 15:20:43,689 - INFO - Description not found
+2024-08-01 15:20:43,700 - INFO - Image not found
+2024-08-01 15:20:43,787 - INFO - Description not found
+2024-08-01 15:20:43,799 - INFO - Image not found
+2024-08-01 15:20:43,890 - INFO - Description not found
+2024-08-01 15:20:43,901 - INFO - Image not found
+2024-08-01 15:20:46,218 - INFO - Reached the end of the search by date 2023-08-16
+2024-08-01 15:20:46,263 - INFO - Closing the application
+2024-08-01 15:28:05,093 - INFO - Starting the application
+2024-08-01 15:28:05,093 - INFO - {'robots', 5, 'Stories'}
+2024-08-01 15:28:17,077 - WARNING - Page didn't load properly, reloading the page
+2024-08-01 15:28:18,192 - INFO - Checking category: 
+2024-08-01 15:28:18,237 - INFO - Checking category: 
+2024-08-01 15:28:18,283 - INFO - Checking category: 
+2024-08-01 15:28:18,661 - INFO - Getting articles from the wrapper
+2024-08-01 15:28:18,829 - INFO - Date not found
+2024-08-01 15:28:18,849 - INFO - Description not found
+2024-08-01 15:28:18,872 - INFO - Image not found
+2024-08-01 15:28:19,794 - INFO - Navigating to the next page
+2024-08-01 15:28:20,289 - INFO - Getting articles from the wrapper
+2024-08-01 15:28:20,380 - WARNING - Stale element, trying to find the element again
+2024-08-01 15:28:20,459 - INFO - Date not found
+2024-08-01 15:28:20,470 - INFO - Description not found
+2024-08-01 15:28:20,482 - INFO - Image not found
+2024-08-01 15:28:20,970 - INFO - Image not found
+2024-08-01 15:28:21,313 - INFO - Date not found
+2024-08-01 15:28:21,800 - INFO - Description not found
+2024-08-01 15:28:21,812 - INFO - Image not found
+2024-08-01 15:28:21,920 - INFO - Description not found
+2024-08-01 15:28:21,932 - INFO - Image not found
+2024-08-01 15:28:22,038 - INFO - Description not found
+2024-08-01 15:28:22,050 - INFO - Image not found
+2024-08-01 15:28:24,694 - INFO - Reached the end of the search by date 2023-08-16
+2024-08-01 15:28:24,733 - INFO - Closing the application

@@ -13,7 +13,7 @@ class ArticleSpecificGetter:
     def get_title(self, article, index):
         try:
             WebDriverWait(self.driver, 10).until(
-                EC.presence_of_element_located((By.CSS_SELECTOR, ".PagePromo-title"))
+                EC.visibility_of_element_located((By.CSS_SELECTOR, ".PagePromo-title"))
             )
             title = article.find_element(By.CSS_SELECTOR, ".PagePromo-title").text  # Adjust the selector
         except (selenium.NoSuchElementException):
@@ -22,7 +22,7 @@ class ArticleSpecificGetter:
         except (selenium.StaleElementReferenceException):
             self.logger.warning("Stale element, trying to find the element again")
             WebDriverWait(self.driver, 10).until(
-                EC.presence_of_element_located((By.CSS_SELECTOR, ".PagePromo-title"))
+                EC.visibility_of_element_located((By.CSS_SELECTOR, ".PagePromo-title"))
             )
             article = self.driver.find_elements(By.CSS_SELECTOR, ".PageList-items-item")[index]
             title = article.find_element(By.CSS_SELECTOR, ".PagePromo-title").text
