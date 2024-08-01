@@ -23,23 +23,18 @@ class NewsScraper:
         svc = webdriver.ChromeService(executable_path=binary_path)
 
         chrome_options = Options()
-        chrome_options.add_argument("--disable-blink-features=AutomationControlled")
-        chrome_options.add_argument("--disable-extensions")
-        chrome_options.add_argument("--headless")  # Run in headless mode
-        chrome_options.add_argument("--disable-gpu")  # Disable GPU acceleration
+        chrome_options.add_argument("--headless")  # Hides the browser window
         chrome_options.add_argument("--no-sandbox")  # Bypass OS security model
-        chrome_options.add_argument("--disable-dev-shm-usage")  # Overcome limited resource problems
-        chrome_options.add_argument("--remote-debugging-port=9222")  # Enable remote debugging
+        chrome_options.add_argument("--disable-extensions")
+        chrome_options.add_argument("--disable-infobars")
+        chrome_options.add_argument("--disable-blink-features=AutomationControlled")
+
 
         self.driver = webdriver.Chrome(service=svc, options=chrome_options)
 
         # Enable Chrome DevTools Protocol and block the add that is causing the page to load slowly
-        self.driver.execute_cdp_cmd('Network.enable', {})
-        self.driver.execute_cdp_cmd('Network.setBlockedURLs', {
-            "urls": ["/All\\.min\\.c0e91e4a47c80b296e67d3501e22d103\\.gz\\.js$", "/node_modules/", "/bower_components/"]
-        })
 
-        self.news_data_extractor = NewsDataExtractor(self.driver,search_phrase, news_category, num_months)
+        self.news_data_extractor = NewsDataExtractor(self.driver,search_phrase, news_category, num_months, self.logger)
         self.articles = []
         self.data_to_save = []
         self.excel = Files()
@@ -82,8 +77,7 @@ class NewsScraper:
             article_data = self.news_data_extractor.get_article_data(article, index)
             if (datetime.strptime(article_data[1], '%Y-%m-%d') < (datetime.now() - timedelta(days=30 * self.news_data_extractor.num_months))):
                 self.continue_scraping = False
-                self.logger.info({article_data[1]})
-                self.logger.info("Reached the end of the search by date")
+                self.logger.info("Reached the end of the search by date " + article_data[1])
                 break
             self.data_to_save.append(article_data)
         
@@ -101,9 +95,9 @@ class NewsScraper:
 if __name__ == "__main__":
     parameters = workitems.inputs
     for item in parameters:
-        search_phrase = item.payload['search_phrase']
-        news_category = item.payload['news_category']
-        num_months = item.payload['num_months']
+        search_phrase = item.payload['search_phrase'] if item.payload else "robots"
+        news_category = item.payload['news_category'] if item.payload else "Stories"
+        num_months = item.payload['num_months'] if item.payload else 5
     # Replace with actual parameters
     scraper = NewsScraper(search_phrase=search_phrase, news_category=news_category, num_months=num_months)
     try:
@@ -115,9 +109,5 @@ if __name__ == "__main__":
             scraper.extract_data_from_articles()
             scraper.navigate_to_next_page(scraper.continue_scraping)
         scraper.save_to_excel(scraper.data_to_save)
-    except:
-        scraper.logger.error("An error occurred")
-        scraper.logger.error(sys.exc_info())
-        print(sys.exc_info())
     finally:
         scraper.close()

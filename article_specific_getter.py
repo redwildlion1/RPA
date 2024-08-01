@@ -24,8 +24,6 @@ class ArticleSpecificGetter:
             WebDriverWait(self.driver, 10).until(
                 EC.presence_of_element_located((By.CSS_SELECTOR, ".PagePromo-title"))
             )
-            # Sometimes the page doesn't load properly, so we need to find the element again
-            # Adds some delay
             article = self.driver.find_elements(By.CSS_SELECTOR, ".PageList-items-item")[index]
             title = article.find_element(By.CSS_SELECTOR, ".PagePromo-title").text
 
@@ -37,8 +35,6 @@ class ArticleSpecificGetter:
         except (selenium.NoSuchElementException, selenium.StaleElementReferenceException):
             self.logger.info("Date not found")
             date_text = None
-        
-
         if date_text:
             date = DateFormatter.process_date(date_text)
         else:
@@ -46,7 +42,7 @@ class ArticleSpecificGetter:
 
         return date
 
-    def get_description(self, article):
+    def get_description(self, article, index):
         try:
             description = article.find_element(By.CSS_SELECTOR, ".PagePromo-description").text  # Adjust the selector
         except selenium.NoSuchElementException:
@@ -56,6 +52,13 @@ class ArticleSpecificGetter:
             decline_button_wrapper = self.driver.find_element(By.CSS_SELECTOR, ".lb-declinewrap")
             decline_button = decline_button_wrapper.find_element(By.CSS_SELECTOR, "a")
             decline_button.click()
+            description = article.find_element(By.CSS_SELECTOR, ".PagePromo-description").text
+        except selenium.StaleElementReferenceException:
+            self.logger.warning("Stale element, trying to find the element again")
+            WebDriverWait(self.driver, 10).until(
+                EC.presence_of_element_located((By.CSS_SELECTOR, ".PagePromo-description"))
+            )
+            article = self.driver.find_elements(By.CSS_SELECTOR, ".PageList-items-item")[index]
             description = article.find_element(By.CSS_SELECTOR, ".PagePromo-description").text
 
         return description
