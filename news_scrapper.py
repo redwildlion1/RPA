@@ -25,9 +25,13 @@ class NewsScraper:
         chrome_options = Options()
         chrome_options.add_argument("--headless")  # Hides the browser window
         chrome_options.add_argument("--no-sandbox")  # Bypass OS security model
-        chrome_options.add_argument("--disable-extensions")
-        chrome_options.add_argument("--disable-infobars")
-        chrome_options.add_argument("--disable-blink-features=AutomationControlled")
+        chrome_options.add_argument("--disable-extensions") # Disables extensions
+        chrome_options.add_argument("--disable-infobars") # Disables the info bar
+        chrome_options.add_argument("--disable-blink-features=AutomationControlled") # Disables the automation bar
+        chrome_options.add_argument("--disable-dev-shm-usage") # Disables the shared memory
+        chrome_options.add_argument("--disable-gpu") # Disables the GPU
+        chrome_options.add_argument("--disable-features=NetworkService") # Disables the network service
+        chrome_options.add_argument("--disable-features=NetworkServiceInProcess") # Disables the network service in process
 
 
         self.driver = webdriver.Chrome(service=svc, options=chrome_options)
