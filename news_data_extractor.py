@@ -50,7 +50,7 @@ class NewsDataExtractor:
     def select_category(self):
         categories = self.driver.find_elements(By.CSS_SELECTOR, ".SearchFilter-items-item")
         for category in categories:
-            self.logger.info("Checking category: " + category.find_element(By.CSS_SELECTOR, "body > div.SearchResultsPage-content > bsp-search-results-module > form > div.SearchResultsModule-ajax > div > bsp-search-filters > div > aside > div > div.SearchResultsModule-filters-content > div > bsp-toggler > bsp-toggler > div > ul > li:nth-child(1) > div > div.CheckboxInput > label > span").text)
+            self.logger.info("Checking category: " + category.find_element(By.CSS_SELECTOR, "span").text)
             # Check if the category is the one we are looking for , it's in a span tag
             if category.find_element(By.CSS_SELECTOR, "span").text == self.news_category:
                 input_category = category.find_element(By.CSS_SELECTOR, "input[type='checkbox']")
