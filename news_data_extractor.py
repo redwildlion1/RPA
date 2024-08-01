@@ -125,14 +125,14 @@ class NewsDataExtractor:
         try:
             WebDriverWait(self.driver, 10).until(
                 # CSS Selector bugs out, using XPATH
-                EC.presence_of_element_located((By.XPATH, "/html/body/div[3]/bsp-search-results-module/form/div[2]/div/bsp-search-filters/div/main/div[2]"))
+                EC.visibility_of_element_located((By.XPATH, "/html/body/div[3]/bsp-search-results-module/form/div[2]/div/bsp-search-filters/div/main/div[2]"))
             )
             results = self.driver.find_element(By.XPATH, "/html/body/div[3]/bsp-search-results-module/form/div[2]/div/bsp-search-filters/div/main/div[2]")
             articles_wrapper = results.find_element(By.CSS_SELECTOR, ".PageList-items")  
             self.driver.execute_script("arguments[0].scrollIntoView(true);", articles_wrapper)
             self.logger.info("Getting articles from the wrapper")
             WebDriverWait(self.driver, 10).until(
-                EC.presence_of_element_located((By.CSS_SELECTOR, ".PageList-items-item"))
+                EC.visibility_of_element_located((By.CSS_SELECTOR, ".PageList-items-item"))
             )
             articles = articles_wrapper.find_elements(By.CSS_SELECTOR, ".PageList-items-item") 
             return articles
